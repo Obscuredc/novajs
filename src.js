@@ -44,6 +44,13 @@ var nova = {
 					return int - add;
 				}
 			}
+		},
+		isPositive : function (int) {
+			if (int >= 0) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	},
 	"physics" : {
