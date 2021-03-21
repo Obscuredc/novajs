@@ -76,7 +76,7 @@ var nova = {
 		returnCollisionModeTypeIsHorizontalBoolean (objectA, objectB) {
 			if (180 - objectA.direction == objectB.direction) {
 				return	false;
-			} else if (180 - objectA.direction + 360) {
+			} else if (180 - objectA.direction + 360 == objectB.direction) {
 				return false;	
 			} else {
 				return  true;
