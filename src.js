@@ -22,7 +22,7 @@ class physicsObject {
 		this.isAnchored = isAnchored;
 		this.isCollidable = isCollidable;
 		this.speed = speed;
-		this.direction = direction;
+		this.direction = direction; //in 360 degrees type
 		this.height = height;
 		this.width = width;
 	}
@@ -72,6 +72,15 @@ var nova = {
 				} else {
 					return false;
 				}
+		},
+		returnCollisionModeTypeIsHorizontalBoolean (objectA, objectB) {
+			if (180 - objectA.direction == objectB.direction) {
+				return	false;
+			} else if (180 - objectA.direction + 360) {
+				return false;	
+			} else {
+				return  true;
+			}
 		}
 	}
 }
