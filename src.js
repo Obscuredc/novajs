@@ -15,7 +15,7 @@ class Vector2 {
 	
 **/
 
-class object {
+class physicsObject {
 	constructor (x, y, isAnchored, isCollidable, speed, direction, width, height) {
 		this.x = x;
 		this.y = y;
