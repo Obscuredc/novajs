@@ -28,6 +28,12 @@ class physicsObject {
 	}
 }
 
+class gameObject extends physicsObject {
+	constructor (x, y, isAnchored, isCollidable, speed, direction, width, height) {
+		super(x, y, isAnchored, isCollidable, speed, direction, width, height);
+	}
+}
+
 
 		function nclamp (int, add, max, mode) {
 			if (mode == true) {
@@ -232,4 +238,3 @@ function applyVelocity (object, speed, angle) {
 function addVelocity (object, speed) {
 	object.speed = object.speed + speed;
 }
-	
