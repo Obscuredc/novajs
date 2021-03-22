@@ -220,3 +220,16 @@ class physicsObject {
 				throw new Error("NovaJS incorrect angle applied to object cannot calculate");
 			}
 		}
+
+function transform (object, x, y) {
+	object.x = object.x + x;	
+	object.y = object.y + y;
+}
+function applyVelocity (object, speed, angle) {
+	object.speed = speed;
+	object.angle = angle;
+}
+function addVelocity (object, speed) {
+	object.speed = object.speed + speed;
+}
+	
