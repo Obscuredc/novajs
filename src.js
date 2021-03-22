@@ -28,9 +28,8 @@ class physicsObject {
 	}
 }
 
-var nova = {
-	"helper" : {
-		nclamp : function (int, add, max, mode) {
+
+		function nclamp (int, add, max, mode) {
 			if (mode == true) {
 				if (int + add > max) {
 					return int + add - max;
@@ -44,24 +43,20 @@ var nova = {
 					return int - add;
 				}
 			}
-		},
-		isPositive : function (int) {
+		}
+		function isPositive (int) {
 			if (int >= 0) {
 				return true;
 			} else {
 				return false;
 			}
 		}
-	},
-	"physics" : {
-		isCollision : function (objectA, objectB) {
+		function isCollisionPoint (objectA, ex, ey) {
 			var ax = objectA.x + objectA.width / 2;
 			var ay = objectA.y + objectA.height / 2;
 			var bx = objectA.x - objectA.width / 2;
 			var cy = objectA.y - objectA.height / 2;
 			// -------------------------------------
-			var ex = objectB.x;
-			var ey = objectB.y;
 				if (
 					ex >= bx &&
 					ex <= ax &&
@@ -72,8 +67,32 @@ var nova = {
 				} else {
 					return false;
 				}
-		},
-		returnCollisionModeTypeIsHorizontalBoolean (objectA, objectB) {
+		}
+		function isCollision (objectA, objectB) {
+			var aax = objectA.x + objectA.width / 2;
+			var aay = objectA.y + objectA.height / 2;
+			var abx = objectA.x - objectA.width / 2;
+			var acy = objectA.y - objectA.height / 2
+			var bax = objectA.x + objectA.width / 2;
+			var bay = objectA.y + objectA.height / 2;
+			var bbx = objectA.x - objectA.width / 2;
+			var bcy = objectA.y - objectA.height / 2
+				if (
+					isCollisionPoint(objectA, bax) == true ||
+					isCollisionPoint(objectA, bay) == true ||
+					isCollisionPoint(objectA, bbx) == true ||
+					isCollisionPoint(objectA, bcy) == true ||
+					isCollisionPoint(objectB, aax) == true ||
+					isCollisionPoint(objectB, aay) == true ||
+					isCollisionPoint(objectB, abx) == true ||
+					isCollisionPoint(objectB, acy) == true 
+				) {
+					return true;
+				} else {
+					return false;
+				}
+					}
+		function returnCollisionModeTypeIsHorizontalBoolean (objectA, objectB) {
 			if (180 - objectA.direction == objectB.direction) {
 				return	false;
 			} else if (180 - objectA.direction + 360 == objectB.direction) {
@@ -81,8 +100,8 @@ var nova = {
 			} else {
 				return  true;
 			}
-		},
-		getCollidedAngleForObjectA (objectA, objectB) {
+		}
+		function getCollidedAngleForObjectA (objectA, objectB) {
 				var a = objectA.direction;
 			if (returnCollisionModeTypeIsHorizontalBoolean(objectA, objectB) == true) {
 				if (a == 360 || a == 0) {
@@ -127,8 +146,8 @@ var nova = {
 			} else {
 				throw new Error("NovaJS getCollidedAngleError");	
 			}
-		},
-		calculateNextFramePosition (objectA, bool_forX) {
+		}
+		function calculateNextFramePosition (objectA, bool_forX) {
 			var ax = objectA.x;
 			var ay = objectA.y;
 			var s = objectA.speed;
@@ -201,5 +220,3 @@ var nova = {
 				throw new Error("NovaJS incorrect angle applied to object cannot calculate");
 			}
 		}
-	}
-}
