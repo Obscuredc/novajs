@@ -23,6 +23,10 @@ Please share!
 <script src="main.js"></script>
 <script src="struct.js"></script>
 ```
+or, import:
+```
+<script src="nova.min.js"></script>
+```
 Write these tags in the body or head of the html document.
 They *must* stay in the same order.
 
