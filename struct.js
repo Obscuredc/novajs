@@ -1,7 +1,5 @@
 var fps = 50;
-function onstartWorker () {
-  var e = setInterval(update, 1000 / fps);
-}
+// Change fps to desired frames per second.
 window.addEventListener('load',
   function() {
     console.log('novajs installed');
