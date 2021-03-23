@@ -21,3 +21,7 @@ function update () {
   
   
 }
+
+function onstartWorker () {
+  var e = setInterval(update, 1000 / fps);
+}
