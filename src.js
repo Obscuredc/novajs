@@ -82,7 +82,7 @@ class gameObject extends physicsObject {
 			var bax = objectA.x + objectA.width / 2;
 			var bay = objectA.y + objectA.height / 2;
 			var bbx = objectA.x - objectA.width / 2;
-			var bcy = objectA.y - objectA.height / 2
+			var bcy = objectA.y - objectA.height / 2;
 				if (
 					isCollisionPoint(objectA, bax) == true ||
 					isCollisionPoint(objectA, bay) == true ||
