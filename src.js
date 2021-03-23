@@ -15,7 +15,7 @@ class Vector2 {
 	
 **/
 
-class physicsObject {
+class hitbox {
 	constructor (x, y, isAnchored, isCollidable, speed, direction, width, height) {
 		this.x = x;
 		this.y = y;
@@ -28,9 +28,12 @@ class physicsObject {
 	}
 }
 
-class gameObject extends physicsObject {
-	constructor (x, y, isAnchored, isCollidable, speed, direction, width, height) {
+class gameObject extends hitbox {
+	constructor (x, y, isAnchored, isCollidable, speed, direction, width, height, health, damage, state) {
 		super(x, y, isAnchored, isCollidable, speed, direction, width, height);
+		this.health = health;
+		this.damage = damage;
+		this.state = 'onGround';
 	}
 }
 
