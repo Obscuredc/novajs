@@ -78,29 +78,23 @@ class gameObject extends hitbox {
 				}
 		}
 		function isCollision (objectA, objectB) {
-			var aax = objectA.x + objectA.width / 2;
-			var aay = objectA.y + objectA.height / 2;
-			var abx = objectA.x - objectA.width / 2;
-			var acy = objectA.y - objectA.height / 2
-			var bax = objectA.x + objectA.width / 2;
-			var bay = objectA.y + objectA.height / 2;
-			var bbx = objectA.x - objectA.width / 2;
-			var bcy = objectA.y - objectA.height / 2;
 				if (
-					isCollisionPoint(objectA, bax) == true ||
-					isCollisionPoint(objectA, bay) == true ||
-					isCollisionPoint(objectA, bbx) == true ||
-					isCollisionPoint(objectA, bcy) == true ||
-					isCollisionPoint(objectB, aax) == true ||
-					isCollisionPoint(objectB, aay) == true ||
-					isCollisionPoint(objectB, abx) == true ||
-					isCollisionPoint(objectB, acy) == true 
+					isCollisionPoint(objectB, objectA.x, objectA.y) == true ||
+					isCollisionPoint(objectB, objectA.x + objectA.width, objectA.y) == true ||
+					isCollisionPoint(objectB, objectA.x, objectA.y - objectA.height) == true ||
+					isCollisionPoint(objectB, objectA.x + objectA.width, objectA.y - objectA.height) == true ||
+					isCollisionPoint(objectA, objectB.x, objectB.y) == true ||
+					isCollisionPoint(objectA, objectB.x + objectB.width, objectB.y) == true ||
+					isCollisionPoint(objectA, objectB.x, objectB.y - objectB.height) == true ||
+					isCollisionPoint(objectA, objectB.x + objectB.width, objectB.y - objectB.height) == true
 				) {
 					return true;
 				} else {
 					return false;
 				}
-					}
+					
+			
+		}
 		function returnCollisionModeTypeIsHorizontalBoolean (objectA, objectB) {
 			if (180 - objectA.direction == objectB.direction) {
 				return	false;
