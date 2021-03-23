@@ -4,6 +4,7 @@ window.addEventListener('load',
   function() {
     console.log('novajs installed');
     onstart();
+      onstartWorker();
   }, false);
   /** 
         Citation for window.addEventli...
